@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" type="png" href="images/icon/favicon.png">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Comaptible" content="IE=edge">
+	<title>LearnEd</title>
+	<meta name="desciption" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="script.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+	<script>
+		$(window).on('scroll', function(){
+  			if($(window).scrollTop()){
+  			  $('nav').addClass('black');
+ 			 }else {
+ 		   $('nav').removeClass('black');
+ 		 }
+		})
+	</script>
+</head>
+<body>
+<!-- Navigation Bar -->
+	<header id="header">
+		<nav>
+			<div class="logo"><img src="images/icon/favicon.png" alt="logo"></div>
+			<ul>
+				<li><a href="index.html" href="index.html">Home</a></li>
+				<!-- <li><a href="index.html">Lifesyle</a></li>
+				<li><a href="index.html">Amenities</a></li>
+				<li><a href="index.html">Team</a></li>
+				<li><a href="#index.hmtl">About</a>
+			    <li><a href="courses.html">Courses</a>
+				<li><a class="active" href="">Examinations</a></li> -->
+				<li><a href="#subject_section">Subjects</a></li>
+				<li><a href="#statistics_section">Statistics</a></li>
+				<li><a href="#services_section">Examinations and career Guidance</a></li>
+			
+				
+			</ul>
+			<div class="srch"><input type="text" class="search" placeholder="Search here..."><img src="images/icon/search.png" alt="search" onclick=slide()></div>
+			<!-- <a class="get-started" href="login.html">Get Started</a> -->
+			<img src="images/icon/menu.png" class="menu" onclick="sideMenu(0)" alt="menu">
+		</nav>
+		<div class="head-container">
+			<div class="quote">
+				<p>The only way to achieve the impossible is to believe it is possible.</p>
+				<h5>Exams and career decisions shape futures. Prepare by setting goals, managing time, and practicing actively. Focus on understanding concepts and staying healthy to reduce stress. For careers, identify strengths, research paths, and build skills. Craft a strong resume, network, and stay updated. Diligence ensures exam success and career fulfillment.</h5>
+				
+			</div>
+			<div class="svg-image">
+				<img src="images/extra/svg1.jpg" alt="svg">
+			</div>
+		</div>
+		<div class="side-menu" id="side-menu">
+			<div class="close" onclick="sideMenu(1)"><img src="images/icon/close.png" alt=""></div>
+			<div class="user">
+				<img src="images/creator/roshan.jpeg" alt="Username">
+				
+			</div>
+			<ul>
+				
+				<li><a href="#services_section">Services</a></li>
+			</ul>
+		</div>
+	</header>
+
+
+<!-- Some Popular Subjects -->
+	<div class="title" id="subject_section">
+		<span>Popular Subjects on LearnEd</span>
+	</div>
+	<br><br>
+	<div class="course">
+		<center><div class="cbox">
+		<div class="det"><a href="subjects/jee.html"><img src="images/courses/book.png">JEE Preparation</a></div>
+		<div class="det"><a href="subjects/gate.html"><img src="images/courses/d1.png">GATE Preparation</a></div>
+		<div class="det"><a href="subjects/jee.html#sample_papers"><img src="images/courses/paper.png">Sample Papers</a></div>
+		<div class="det"><a href="subjects/quiz.html"><img src="images/courses/d1.png">Daily Quiz</a></div>
+		</div></center>
+		
+		</div>
+	</div>
+
+	
+
+
+
+<!-- PORTFOLIO -->
+
+<div class="diffSection" id="portfolio-section">
+	<center><p style="font-size: 50px; padding: 100px; padding-bottom: 40px;">Statistics</p></center>
+	<div class="content">
+		<p>
+            “Success is no accident. It is hard work, perseverance, learning, studying, sacrifice, and most of all, love for what you are doing or learning to do.” 
+            “Your preparation today shapes your success tomorrow.” 
+            “Dream big, work hard, and stay focused to achieve your goals.”
+        </p>		</div>
+</div>
+<div class="extra">
+    <p>Statistics updated yearly to reflect our progress:</p>
+	<div class="smbox">
+		<span><center><div class="data">150,000+</div><div class="det">JEE Mains Total Applicants</div></center></span>
+		<span><center><div class="data">10,000+</div><div class="det">JEE Mains Top 99 Percentilers</div></center></span>
+		<span><center><div class="data">25,000+</div><div class="det">JEE Advanced Qualifiers</div></center></span>
+		<span><center><div class="data">1,000+</div><div class="det">JJEE AIR < 1000</div></center></span>
+		<span><center><div class="data">100,000+</div><div class="det">GATE Total Applicants</div></center></span>
+		<span><center><div class="data">15,000+</div><div class="det">GATE Qualifiers</div></center></span>
+		<span><center><div class="data">5,000+</div><div class="det">GATE Top Scorers</div></center></span>
+		<span><center><div class="data">1,200+</div><div class="det">GATE Admissions to IITs</div></center></span>
+
+	</div>
+</div>
+
+	
+
+
+<!-- SERVICES -->
+	<div class="service-swipe">
+		<div class="diffSection" id="services_section">
+		<center><p style="font-size: 50px; padding: 100px; padding-bottom: 40px; color: #fff;">Examinations and career Guidance</p></center>
+		</div>
+		<a href="subjects/jee.html#sample_papers"><div class="s-card"><img src="images/icon/papers.jpg"><p>Sample Papers of Various Competitive Exams</p></div></a>
+		<a href="subjects/quiz.html"><div class="s-card"><img src="images/icon/q1.png"><p>Daily Brain Teasing Questions to Improve IQ</p></div></a>
+		<a href="#contactus_section"><div class="s-card"><img src="images/icon/help.png"><p>24x7 Online Support</p></div></a>
+	</div>
+
+
+
+
+
+<!-- Sliding Information -->
+	<marquee style="background: linear-gradient(to right, #FA4B37, #DF2771); margin-top: 50px;" direction="left" onmouseover="this.stop()" onmouseout="this.start()" scrollamount="20"><div class="marqu">“Education is the passport to the future, for tomorrow belongs to those who prepare for it today.” “Your attitude, not your aptitude, will determine your altitude.” “If you think education is expensive, try ignorance.” “The only person who is educated is the one who has learned how to learn …and change.”</div></marquee>
+
+<!-- FOOTER -->
+	<footer>
+		<div class="footer-container">
+			<div class="left-col">
+				<img src="images/icon/logo - Copy.png" style="width: 200px;">
+				<div class="logo"></div>
+				<div class="social-media">
+					<a href="#"><img src="images/icon\fb.png"></a>
+					<a href="#"><img src="images/icon\insta.png"></a>
+					<a href="#"><img src="images/icon\tt.png"></a>
+					<a href="#"><img src="images/icon\ytube.png"></a>
+					<a href="#"><img src="images/icon\linkedin.png"></a>
+				</div><br><br>
+				<p class="rights-text">Copyright © 2021 Created By Roshan Kumar, Abhishek Dulat All Rights Reserved.</p>
+				<br><p><img src="images/icon/location.png"> Lovely Professional University<br>Phagwara, Punjab-144401</p><br>
+				<p><img src="images/icon/phone.png"> +91-1234-567-890<br><img src="images/icon/mail.png">&nbsp; learnedonline9419@gmail.com</p>
+			</div>
+			<div class="right-col">
+				<h1 style="color: #fff">Our Newsletter</h1>
+				<div class="border"></div><br>
+				<p>Enter Your Email to get our News and updates.</p>
+				<form class="newsletter-form">
+					<input class="txtb" type="email" placeholder="Enter Your Email">
+					<input class="btn" type="submit" value="Submit">
+				</form>
+			</div>
+		</div>
+	</footer>
+
+</body>
+</html>

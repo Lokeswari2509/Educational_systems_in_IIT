@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="png" href="images/icon/favicon.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>IIT Courses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+        }
+
+        .App {
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .iit-container {
+            display: grid;
+            margin-top: 85px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            padding: 0 20px;
+        }
+
+        /* IIT card styles */
+        .iit-card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, background 0.3s ease;
+            background: linear-gradient(135deg, #ffffff, #ffffff);
+            box-shadow: inset 0 0 10px rgb(16, 26, 218), 0 0 10px rgba(41, 255, 37, 0.879); /* Initial background */
+        }
+
+        .iit-card:hover {
+            background: linear-gradient(135deg, whitesmoke, whitesmoke); /* Gradient on hover */
+            transform: translateY(-10px);
+        }
+
+        .iit-logo {
+            width: 100px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        h2{
+            font-size: 1.5rem;
+            color: rgb(25, 24, 26);
+            margin-bottom: 20px;
+        }
+
+        /* Course button styles */
+        .course-btn-container {
+            margin-top: 20px;
+        }
+
+        .course-btn {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 20px;
+            background-color: rgb(62, 13, 238);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.2s ease;
+        }
+
+        .course-btn:hover {
+            background-color: green;
+        }
+
+        /* Different colors for UG, PG, and Dual Degree buttons */
+        .course-btn.ug {
+            background-color: #ff6347; /* Tomato color for UG */
+        }
+
+        .course-btn.pg {
+            background-color: #4682b4; /* SteelBlue for PG */
+        }
+
+        .course-btn.dual-degree {
+            background-color: #32cd32; /* LimeGreen for Dual Degree */
+        }
+
+        .course-btn.ug:hover {
+            background-color: #ff4500; /* Darker shade for UG on hover */
+        }
+
+        .course-btn.pg:hover {
+            background-color: #4169e1; /* Darker shade for PG on hover */
+        }
+
+        .course-btn.dual-degree:hover {
+            background-color: #228b22; /* Darker shade for Dual Degree on hover */
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .iit-container {
+                grid-template-columns: 1fr;
+                padding: 0 20px;
+            }
+
+            .iit-card {
+                padding: 10px;
+            }
+        }
+        /* Style for the h2 element */
+
+
+/* Style for the anchor (a) element */
+h2 a {
+  
+
+  text-decoration: none; /* Removes the underline from the link */
+  color:rgba(0, 0, 0, 0.756); /* Link color */
+  font-weight: bold; /* Makes the text bold */
+  transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transition effect */
+}
+
+/* Add a hover effect for the link */
+h2 a:hover {
+  color:#05d813; /* Darker color for hover */
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2); /* Slight shadow on hover */
+}
+
+
+
+
+        
+    </style>
+</head>
+<body>
+  <header id="header">
+		<nav>
+			<div class="logo"><img src="images/icon/favicon.png" alt="logo"></div>
+			<ul>
+				<li><a class="active" href="index.html">Home</a></li>
+				<li><a href="index.html">Team</a></li>
+				<li><a href="#index.hmtl">About</a>
+			    <li><a href="courses.html">Courses</a>
+			</ul>
+			<div class="srch"><input type="text" class="search" placeholder="Search here..."><img src="images/icon/search.png" alt="search" onclick=slide()></div>
+			<!-- <a class="get-started" href="login.html">Get Started</a> -->
+			<img src="images/icon/menu.png" class="menu" onclick="sideMenu(0)" alt="menu">
+		</nav>
+   
+    <div class="iit-container" id="iitContainer"></div>
+
+    <script>
+        const iitData = [
+       
+        
+          {
+            name: 'IIT Bombay',
+            imgSrc: 'https://upload.wikimedia.org/wikipedia/en/1/1d/Indian_Institute_of_Technology_Bombay_Logo.svg',
+            website: 'https://www.iitb.ac.in/',
+            courses: [
+              { name: 'UG Courses', link: 'https://www.iitb.ac.in/newacadhome/UnderGraduate.jsp' },
+              { name: 'PG Courses', link: 'https://www.iitb.ac.in/newacadhome/PostGraduate.jsp' },
+              { name: 'Life Style', link: "./lifestyles/iitbombay.html" },
+              { name: 'Amenities', link: './amenities/iitbombay.html' }
+            ]
+          },
+          {
+            name: 'IIT Kanpur',
+            imgSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwbbMz-P0ZeAxxp-NZKorARVzE-aniCQd2dQ&s',
+            website: 'https://www.iitk.ac.in/', // Image path for IIT Goa
+            courses: [
+              { name: 'UG Courses', link: 'https://www.iitk.ac.in/doaa/under-graduate-programme' },
+              { name: 'PG Courses', link: 'https://www.iitk.ac.in/doaa/post-graduate-programme' },
+              { name: 'Life Style', link: './lifestyles/iitkanpur.html' },
+              { name: ' Amenities', link: './amenities/iitkanpur.html' }
+            ]
+          },
+          {
+            name: 'IIT Roorkee',
+            imgSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLVb4HPHZdCMjKl_FiZIaiSEVLSSGnBzt5Xw&s', // Image path for IIT Goa
+            website: 'https://www.iitr.ac.in/',
+            courses: [
+              { name: 'UG Courses', link: 'https://acad.iitr.ac.in/Varsity/UGProgrammes_new1.html' },
+              { name: 'PG Courses', link: 'https://acad.iitr.ac.in/Varsity/PGProgrammes.html' },
+              { name: 'Life Style', link: './lifestyles/iitroorkee.html' },
+              { name: ' Amenities', link: './amenities/iitroorkee.html' }
+            ]
+          },
+          {
+            name: 'IIT  Kharagpur',
+            imgSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDQcGrL9cchBQuZNSw_Yo9BaOREVFZUJUhSA&s',
+            website: 'https://www.iitkgp.ac.in/',
+            courses: [
+              { name: 'UG Courses', link: 'https://erp.iitkgp.ac.in/ERPWebServices/curricula/specialisationList.jsp?stuType=UG' },
+              { name: 'PG Courses', link: 'https://www.iitkgp.ac.in/admission-pg' },
+              { name: 'Life Style', link: './lifestyles/iitkharagpur.html' },
+              { name: ' Amenities', link: './amenities/iitkharagpur.html' }
+            ]
+          },
+          {
+            name: 'IIT Guwahati',
+            imgSrc: 'https://www.lotus-india.eu/wp-content/uploads/2019/04/logo-indian-institute-technology.png',
+            website: 'https://www.iitg.ac.in/',
+            courses: [
+              { name: 'UG Courses', link: 'https://iitg.ac.in/acad/programmes/bachelors.php/' },
+              { name: 'PG Courses', link: 'https://iitg.ac.in/acad/admission/master/disciplines.php/' },
+              { name: 'Life Style', link: './lifestyles/iitgowhati.html' },
+              { name: ' Amenities', link: './amenities/iitguwahati.html' }
+            ]
+          },
+          {
+            name: 'IIT Hyderabad',
+            imgSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvKBARcNC52GbsXUe2Oczx8KvEIdv8ou_11A&s', // Image path for IIT Goa
+            website: 'https://www.iith.ac.in/',
+            courses: [
+              { name: 'UG Courses', link: 'https://www.iith.ac.in/academics/under-graduate/' },
+              { name: 'PG Courses', link: 'https://www.iith.ac.in/academics/post-graduate/' },
+              { name: 'Life Style', link: './lifestyles/iithyderabad.html' },
+              { name: ' Amenities', link: './amenities/iithyderabad.html' }
+            ]
+          },
+          {
+            name: 'IIT BHU',
+            imgSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHYY736ueEszz5aRYMT08kTe41Fo6uVFX7pQ&s', // Image path for IIT Goa
+            website: 'https://iitbhu.ac.in/',
+            courses: [
+              { name: 'UG Courses', link: 'https://iitbhu.ac.in/' },
+              { name: 'PG Courses', link: 'https://iitbhu.ac.in/' },
+              { name: 'Life Style', link: './lifestyles/Iiitbhu.html' },
+              { name: ' Amenities', link: './amenities/iitbhu.html' }
+            ]
+          },
+          
+          {
+            name: 'IIT Indore',
+            imgSrc: 'https://upload.wikimedia.org/wikipedia/en/c/c4/Indian_Institute_of_Technology%2C_Indore_Logo.png', // Image path for IIT Goa
+            website: 'https://www.iiti.ac.in/',
+            courses: [
+              { name: 'UG Courses', link: 'https://academic.iiti.ac.in/academic_program.php' },
+              { name: 'PG Courses', link: 'https://academic.iiti.ac.in/academic_program.php' },
+              { name: 'Life Style', link: './lifestyles/iitindore.html' },
+              { name: ' Amenities', link: './amenities/iitindore.html' }
+        
+            ]
+          },
+          {
+            name: 'IIT Ropar',
+            imgSrc: 'https://www.iitrpr.ac.in/sites/default/files/image.jpg', // Image path for IIT Goa
+            website: 'https://www.iitrpr.ac.in/',
+            courses: [
+              { name: 'UG Courses', link: 'https://www.iitrpr.ac.in/current-students/ug' },
+              { name: 'PG Courses', link: 'https://www.iitrpr.ac.in/current-students/pg' },
+              { name: 'Life Style', link: './lifestyles/iitropar.html' },
+              { name: ' Amenities', link: './amenities/iitroopar.html' }
+            ]
+          },
+          {
+            name: 'IIT Mandi',
+            imgSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAaexuEFbcxQFiMP6S1FqUD-sLeVv-3OgOzw&s', // Image path for IIT Goa
+            website: 'https://www.iitmandi.ac.in/',
+            courses: [
+              { name: 'UG Courses', link: 'https://www.iitmandi.ac.in/degreeprograms' },
+              { name: 'PG Courses', link: 'https://www.iitmandi.ac.in/degreeprograms' },
+              { name: 'Life Style', link: './lifestyles/iitmandi.html' },
+              { name: ' Amenities', link: './amenities/iitmandi.html' }
+            ]
+          },
+          {
+            name: 'IIT Gandhinagar',
+            imgSrc: 'https://psychographicsociety.com/wp-content/uploads/2022/07/iit-gandhinagar.png.webp',
+            website: 'https://iitgn.ac.in/',
+            courses: [
+              { name: 'UG Courses', link: 'https://iitgn.ac.in/academics/btech' },
+              { name: 'PG Courses', link: 'https://iitgn.ac.in/academics/mtech' },
+              { name: 'Life Style', link: './lifestyles/iitgandhinagar.html' },
+              { name: ' Amenities', link: './amenities/iitgandhinagar.html' }
+            ]
+          },
+          {
+            name: 'IIT Jodhpur',
+            imgSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFbJ-xMJzM9luf4CVsJ4C2sGjtZveoa9XyJ3nW4u1Esp5ArwlDsrpbpyd0eLTMs7R8h7Y&usqp=CAU', // Image path for IIT Goa
+            website: 'https://www.iitj.ac.in/',
+            courses: [
+              { name: 'UG Courses', link: 'http://academics.iitj.ac.in/?page_id=377' },
+              { name: 'PG Courses', link: 'https://iitj.ac.in/academics/misc.php?id=welcome' },
+              { name: 'Life Style', link: './lifestyles/iitjodhpur.html' },
+              { name: ' Amenities', link: './amenities/iitjodhpur.html' }
+            ]
+          },
+          {
+            name: 'IIT Patna',
+            imgSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBrwkuniCAWPapvRKlKlU7wDq4ecsVvB4LBQ&s', // Image path for IIT Goa
+            website: 'https://www.iitp.ac.in/',
+            courses: [
+              { name: 'UG Courses', link: 'https://www.iitp.ac.in/courses' },
+              { name: 'PG Courses', link: 'https://www.iitp.ac.in/courses' },
+              { name: 'Life Style', link: './lifestyles/iitpatna.html' },
+              { name: ' Amenities', link: './amenities/iitpatna.html' }
+            ]
+          },
+          {
+            name: 'IIT  Bhubaneshwar',
+            imgSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSut7D1tGBIavpySff_cvnDpBPslVOCcFXf4g&s', // Image path for IIT Goa
+            website: 'https://www.iitbbs.ac.in/',
+            courses: [
+              { name: 'UG Courses', link: 'https://www.iitbbs.ac.in/index.php/home/academics/curriculum-b-tech/' },
+              { name: 'PG Courses', link: 'https://webapps.iitbbs.ac.in/mtech-application/' },
+              { name: 'Life Style', link: './lifestyles/iitbhubaneswar.html' },
+              { name: ' Amenities', link: './amenities/iitbhubaneswar.html' }
+            ]
+          },
+          {
+            name: 'IIT Tirupati',
+            imgSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv1m3Euz06H6wnvI2rfYZUULXDH5DfngI-ug&s', // Image path for IIT Goa
+            website: 'https://www.iittp.ac.in/',
+            courses: [
+              { name: 'UG Courses', link: 'https://iittp.ac.in/btech' },
+              { name: 'PG Courses', link: 'https://iittp.ac.in/mtech' },
+              { name: 'Life Style', link: './lifestyles/iittirupati.html' },
+              { name: ' Amenities', link: './amenities/iittirupati.html' }
+            ]
+          },
+          {
+            name: 'IIT Palakkad',
+            imgSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmxVaX5T4_e01aD8m3ijSiKrpPW0oPmxWLCklZHbYa_WRSXb9tca4Xrf6JVh8FFnoIZLA&usqp=CAU', // Image path for IIT Goa
+            website: 'https://iitpkd.ac.in/',
+            courses: [
+              { name: 'UG Courses', link: 'https://iitpkd.ac.in/programs' },
+              { name: 'PG Courses', link: 'https://iitpkd.ac.in/programs' },
+              { name: 'Life Style', link: './lifestyles/iitpalakkad.html' },
+              { name: ' Amenities', link: './amenities/iitpalakkad.html' }
+            ]
+          },
+          {
+            name: 'IIT Jammu',
+            imgSrc: 'https://uxdt.nic.in/wp-content/uploads/2024/06/iit-jammu-01.jpg?x79383', // Image path for IIT Goa
+            website: 'https://www.iitjammu.ac.in/',
+            courses: [
+              { name: 'UG Courses', link: 'https://www.iitjammu.ac.in/ug-admissions' },
+              { name: 'PG Courses', link: 'https://www.iitjammu.ac.in/pg-admissions' },
+              { name: 'Life Style', link: './lifestyles/iitjammu.html' },
+              { name: ' Amenities', link: './amenities/iitjammu.html' }
+            ]
+          },
+          {
+            name: 'IIT Dharwad',
+            imgSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzS54SQKj_F4O7XeBfrXyD5YiPYbNmY4YWOQ&s', // Image path for IIT Goa
+            website: 'https://www.iitdh.ac.in/',
+            courses: [
+              { name: 'UG Courses', link: 'https://www.iitdh.ac.in/programs' },
+              { name: 'PG Courses', link: 'https://www.iitdh.ac.in/programs' },
+              { name: 'Life Style', link: './lifestyles/iitdharwad.html' },
+              { name: ' Amenities', link: './amenities/iitdharwad.html' }
+            ]
+          },
+          {
+            name: 'IIT Bhilai',
+            imgSrc: 'https://upload.wikimedia.org/wikipedia/en/thumb/6/61/IIT_Bhilai_logo.png/220px-IIT_Bhilai_logo.png', // Image path for IIT Goa
+            website: 'https://www.iitbhilai.ac.in/',
+            courses: [
+              { name: 'UG Courses', link: 'https://www.iitbhilai.ac.in/index.php?pid=adm_undergraduate' },
+              { name: 'PG Courses', link: 'https://www.iitbhilai.ac.in/index.php?pid=adm_mtech_new' },
+              { name: 'Life Style', link: './lifestyles/iitbhilai.html' },
+              { name: ' Amenities', link: './amenities/iitbhilai.html' }
+        
+            ]
+          },
+          {
+            name: 'IIT Goa',
+            imgSrc: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/Indian_Institute_of_Technology_Goa_Logo.svg/220px-Indian_Institute_of_Technology_Goa_Logo.svg.png', // Image path for IIT Goa
+            website: 'https://iitgoa.ac.in/',
+            courses: [
+              { name: 'UG Courses', link: 'https://iitgoa.ac.in/undergraduate-programmes/' },
+              { name: 'PG Courses', link: 'https://iitgoa.ac.in/postgraduate-programmes/' },
+              { name: 'Life Style', link: './lifestyles/iitgoa.html' },
+              { name: ' Amenities', link: './amenities/iitgoa.html' }
+        
+            ]
+          },
+          {
+            name: 'IIT Madras',
+            imgSrc: 'https://upload.wikimedia.org/wikipedia/en/thumb/6/69/IIT_Madras_Logo.svg/1200px-IIT_Madras_Logo.svg.png', // Image path for IIT Madras
+            website: 'https://www.iitm.ac.in/',
+            courses: [
+              { name: ' UG Courses', link: 'https://www.iitm.ac.in/ug' },
+              { name: 'PG Courses', link: 'https://www.iitm.ac.in/pg' },
+              { name: 'Life Style', link: './lifestyles/iitmadras.html' },
+              { name: ' Amenities', link: './amenities/iitmadras.html' }
+            ]
+          },
+          {
+            name: 'IIT Delhi',
+            imgSrc: 'https://upload.wikimedia.org/wikipedia/en/f/fd/Indian_Institute_of_Technology_Delhi_Logo.svg',
+            website: 'https://home.iitd.ac.in/', // Image path for IIT Madras
+            courses: [
+              { name: ' UG Courses', link: 'https://international.iitd.ac.in/undergraduate-studies/' },
+              { name: 'PG Courses', link: 'https://www.iitm.ac.in/pg' },
+              { name: 'Life Style', link: './lifestyles/iitdelhi.html' },
+              { name: ' Amenities', link: './amenities/iitdelhi.html' }
+            ]
+          },
+          {
+            name: 'IIT ISM Dhanbad',
+            imgSrc: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8e/IIT_%28ISM%29_Dhanbad_Logo.svg/1200px-IIT_%28ISM%29_Dhanbad_Logo.svg.png', // Image path for IIT Goa
+            website: 'https://www.iitism.ac.in/',
+            courses: [
+              { name: 'UG Courses', link: 'https://josaa.admissions.nic.in/seatinfo/root/InstProfile.aspx?instcd=114' },
+              { name: 'PG Courses', link: 'https://admission.iitism.ac.in/index.php/admission/msc/add_msc/home' },
+              { name: 'Life Style', link: './lifestyles/iitismdhanbad.html' },
+              { name: ' Amenities', link: './amenities/iitismdhanabad.html' }
+            ]
+          },
+        
+        
+        ];
+        const container = document.getElementById('iitContainer');
+
+        function displayIITCards() {
+            iitData.forEach(iit => {
+                const iitCard = document.createElement('div');
+                iitCard.classList.add('iit-card');
+                iitCard.innerHTML = `
+                    <img src="${iit.imgSrc}" alt="${iit.name} Logo" class="iit-logo">
+                    <h2><a href="${iit.website}" target="_blank">${iit.name}</a></h2>
+                   
+                    <div class="course-btn-container">
+                        ${iit.courses.map(course => `
+                            <a href="${course.link}" class="course-btn ${course.name.toLowerCase().replace(/ /g, '-')}">${course.name}</a>
+                        `).join('')}
+                    </div>
+                `;
+                container.appendChild(iitCard);
+            });
+        }
+
+        displayIITCards();
+    </script>
+</body>
+</html>
